@@ -1,4 +1,3 @@
-
 package kurtiswong.windowmaster;
 
 import java.util.Scanner;
