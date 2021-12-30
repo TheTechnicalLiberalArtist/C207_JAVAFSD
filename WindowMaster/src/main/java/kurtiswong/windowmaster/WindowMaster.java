@@ -15,10 +15,10 @@ public class WindowMaster {
         
         //Declaring global variables
         
-        String stringHeight = "";
-        String stringWidth = "";
-        String stringGlassPanel = "";
-        String stringGlassTrim = "";
+        float floatHeight = 0;
+        float floatWidth = 0;
+        float floatGlassPanel = 0;
+        float floatGlassTrim = 0;
         String numberOfWindows = "";
         
        //Exception Testing 
@@ -27,9 +27,7 @@ public class WindowMaster {
         
         do {
             try {
-                System.out.println("Please enter the height of the Window:");
-                stringHeight = sc.nextLine();
-                float floatHeight = Float.parseFloat(stringHeight);
+                floatHeight = readValue("Please enter the height of the Window:");
                 break;
                 
             } catch(NumberFormatException ex) {
@@ -39,9 +37,8 @@ public class WindowMaster {
         
         do{    
             try {
-                System.out.println("Please enter the width of the Window:");
-                stringWidth = sc.nextLine();
-                float floatWidth = Float.parseFloat(stringWidth);
+              
+                floatWidth = readValue("Please enter the width of the Window:");
                 break;
                 
             } catch(NumberFormatException ex) {
@@ -51,9 +48,8 @@ public class WindowMaster {
         
         do{
             try {
-                System.out.println("Please enter the cost of the Panel:");
-                stringGlassPanel = sc.nextLine();
-                float floatGlassPanel = Float.parseFloat(stringGlassPanel);
+                
+                floatGlassPanel = readValue("Please enter the cost of the Panel:");
                 break;
                 
             } catch(NumberFormatException ex) {
@@ -63,9 +59,8 @@ public class WindowMaster {
         
         do{
             try {
-                System.out.println("Please enter the cost of the Trim:");
-                stringGlassTrim = sc.nextLine();
-                float floatGlassTrim = Float.parseFloat(stringGlassTrim);
+                
+                floatGlassTrim = readValue("Please enter the cost of the Trim:");
                 break;
                 
             } catch(NumberFormatException ex) {
@@ -86,11 +81,7 @@ public class WindowMaster {
             }    
         } while(!isValid);
       
-        // Parsing on tested inputs
-        float floatHeight = Float.parseFloat(stringHeight);
-        float floatWidth = Float.parseFloat(stringWidth);
-        float floatGlassPanel = Float.parseFloat(stringGlassPanel);
-        float floatGlassTrim = Float.parseFloat(stringGlassTrim);
+       
         
         //Cost calulation based on Area,Perimeter, and Number of windows
         int intNumberOfWindows = Integer.parseInt(numberOfWindows);
@@ -107,4 +98,12 @@ public class WindowMaster {
       
     }
     
+    public static float readValue(String prompt){
+        Scanner scan = new Scanner(System.in);
+        System.out.println(prompt);
+        
+        String input = scan.nextLine();
+        float floatVal = Float.parseFloat(input);
+        return floatVal;
+    }
 }
